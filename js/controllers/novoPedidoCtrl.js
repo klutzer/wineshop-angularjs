@@ -1,6 +1,7 @@
 /*jslint white:true*/
 /*global angular, bootbox*/
-angular.module("wineshop").controller("novoPedidoCtrl", function ($scope, $cookies, KEYS, vinhoService, clienteService) {
+angular.module("wineshop").controller("novoPedidoCtrl", function (
+	$scope, $state, $cookies, KEYS, vinhoService, clienteService) {
 	
 	"use strict";
 	
@@ -58,9 +59,12 @@ angular.module("wineshop").controller("novoPedidoCtrl", function ($scope, $cooki
 	
 	$scope.limparPedido = function () {
 		$cookies.remove(KEYS.pedidoAtual);
-		//$scope.formCadastro.$setPristine();
-		//$scope.formPedido.$setPristine();
 		loadPedido();
+	};
+
+	$scope.finalizar = function (pedido) {
+		$cookies.putObject(KEYS.pedidoAtual, pedido);
+		$state.go("main.finalizarPedido");
 	};
 	
     getClientes();

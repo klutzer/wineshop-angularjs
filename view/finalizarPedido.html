@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="page-header">
+			<h3>Finalizar Pedido</h3>
+		</div>
+		<dl class="dl-horizontal">
+			<dt>Cliente</dt>
+			<dd>{{pedido.cliente.nome}}</dd>
+			<dt>Itens</dt>
+			<dd>{{pedido.itens.length}}</dd>
+			<dt>Distância</dt>
+			<dd>{{pedido.distancia}} km</dd>
+			<dt>Total dos itens</dt>
+			<dd>{{pedido.valorItens | currency}}</dd>
+			<dt>Frete</dt>
+			<dd>{{pedido.totalFrete | currency}}</dd>
+			<dt class="strong-dd">Total Geral</dt>
+			<dd class="strong-dd">{{pedido.totalVenda | currency}}</dd>
+			<button class="btn btn-default" ui-sref="main.novoPedido">Voltar ao Pedido</button>
+			<button class="btn btn-primary">Concluir Pedido</button>
+		</dl>
+	</div>
+</div>

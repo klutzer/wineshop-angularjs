@@ -42,6 +42,7 @@
                 </table>
             </div>
         </div>
+        <hr>
         <form name="formPedido" novalidate>
             <div class="col-sm-9">
                 <label for="cliente">Cliente</label>
@@ -57,7 +58,7 @@
             </div>
             <div class="col-sm-12">
                 <button class="btn btn-danger" ng-click="limparPedido()">LimparPedido</button>
-                <button class="btn btn-primary" ui-sref="main.finalizarPedido"
+                <button class="btn btn-primary" ng-click="finalizar(pedido)"
                         ng-disabled="formPedido.$invalid || pedido.itens.length < 1">Finalizar Pedido</button>
             </div>
         </form>

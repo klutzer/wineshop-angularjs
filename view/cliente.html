@@ -3,12 +3,12 @@
 		<div class="page-header">
 			<h3>Cadastro de Clientes</h3>
 		</div>
-		<form name="formCadastro" class="form-group">
+		<form name="formCadastro" class="form-group" novalidate>
 			<div class="row" ng-class="{'has-error': formCadastro.nome.$invalid && formCadastro.nome.$dirty}">
 				<div class="col-sm-6">
 					<label for="nome">Nome</label>
 					<input class="form-control" type="text" ng-required="true" ng-minlength="3"
-					ng-model="cliente.nome" name="nome"></input>
+					ng-model="cliente.nome" name="nome" id="nome"></input>
 					<span class="help-block" ng-show="formCadastro.nome.$invalid && formCadastro.nome.$dirty">
 						Nome inválido!
 					</span>
@@ -16,8 +16,11 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<button class="btn btn-primary" ng-disabled="formCadastro.$invalid" ng-click="salvarCliente(cliente)">Salvar</button>
-					<button class="btn btn-danger" ng-disabled="!cliente.id" ng-click="removerCliente(cliente)">Excluir</button>
+					<button class="btn btn-default" ng-click="reset()">Novo</button>
+					<button class="btn btn-primary" ng-disabled="formCadastro.$invalid" 
+					ng-click="salvarCliente(cliente)">Salvar</button>
+					<button class="btn btn-danger" ng-disabled="!cliente.id" 
+					ng-click="removerCliente(cliente)">Excluir</button>
 				</div>
 			</div>
 		</form>
