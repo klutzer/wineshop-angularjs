@@ -46,5 +46,11 @@ angular.module("wineshop")
     url: "/finalizarPedido",
     controller: "finalizarPedidoCtrl",
     templateUrl: "view/finalizarPedido.html"
+  })
+  .state("main.pedido", {
+    authenticated: true,
+    url: "/pedido",
+    controller: "pedidoCtrl",
+    templateUrl: "view/pedido.html"
   });
 });

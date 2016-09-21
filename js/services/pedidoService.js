@@ -1,7 +1,16 @@
 angular.module("wineshop").service("pedidoService", function($http, config) {
 
-	this.calcularTotais = function(pedido) {
-		return $http.post(config.baseUrl + "/venda/calcularTotais", pedido);
-	};
-	
+    "use strict";
+
+    this.calcularTotais = function (pedido) {
+        return $http.post(config.baseUrl + "/venda/calcularTotais", pedido);
+    };
+
+    this.add = function (pedido) {
+        return $http.post(config.baseUrl + "/venda", pedido);
+    };
+
+    this.list = function () {
+        return $http.get(config.baseUrl + "/venda");
+    };
 });

@@ -67,3 +67,17 @@ dd {
   font-weight: bold;
   font-size: 155%;
 }
+
+.cell{
+  display: table-cell; 
+  width:20%;
+  font-size: 90%; 
+}
+
+.cell-header {
+  display: table-cell; 
+  width:20%;
+  font-weight: bold;
+  color: black;
+  font-size: 105%; 
+}
