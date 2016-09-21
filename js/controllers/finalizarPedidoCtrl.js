@@ -19,4 +19,12 @@ angular.module("wineshop").controller('finalizarPedidoCtrl', function ($scope, $
 
     verificaPedidoAtual();
 
+    $scope.concluirPedido = function (pedido) {
+        pedidoService.add(pedido).then(function (response) {
+            bootbox.alert("Pedido nº "+response.data.id+" cadastrado!");
+            $cookies.remove(KEYS.pedidoAtual);
+            $state.go("main.novoPedido");
+        });
+    };
+
 });

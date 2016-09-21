@@ -1,64 +1,67 @@
 <div class="container">
-	<div class="col-md-8 col-md-offset-2">
+	<div class="col-lg-8 col-lg-offset-2">
 		<div class="page-header">
 			<h3>Meus Pedidos</h3>
 		</div>
-	</div>
-	<div uib-accordion>
-		<div uib-accordion-group is-disabled="true" class="panel-default">
-			<div uib-accordion-heading>
-				<div uib-accordion-toggle>
-					<div class="cell-header">S</div>
-					<div class="cell-header">R</div>
-					<div class="cell-header">Se</div>
-					<div class="cell-header">D</div>
-					<div class="cell-header">Ser</div>
-					<div class="cell-header">L</div>
+		<div uib-accordion ng-show="pedidos.length > 0">
+			<div uib-accordion-group is-disabled="true" class="panel-default">
+				<div uib-accordion-heading>
+					<div uib-accordion-toggle>
+						<div class="cell-header">Data</div>
+						<div class="cell-header">Cliente</div>
+						<div class="cell-header">Valor</div>
+						<div class="cell-header">Frete</div>
+						<div class="cell-header">Total</div>
+					</div>
 				</div>
 			</div>
+			<div uib-accordion-group  ng-repeat="p in pedidos" is-open="status.open" panel-default>
+				<div uib-accordion-heading>
+					<div class="cell">{{p.dataHora | date:'dd/MM/yyyy HH:mm'}}</div>
+					<div class="cell">{{p.cliente.nome}}</div>
+					<div class="cell">{{p.valorItens | currency}}</div>
+					<div class="cell">{{p.totalFrete | currency}}</div>
+					<div class="cell">{{p.totalVenda | currency}}</div>
+				</div>
+
+				<div>
+					<dl class="dl-horizontal">
+						<dt>Cliente</dt>
+						<dd>{{p.cliente.nome}}</dd>
+						<dt>Itens</dt>
+						<dd>{{p.itens.length}}</dd>
+						<dt>Distância</dt>
+						<dd>{{p.distancia}} km</dd>
+						<dt>Total dos itens</dt>
+						<dd>{{p.valorItens | currency}}</dd>
+						<dt>Frete</dt>
+						<dd>{{p.totalFrete | currency}}</dd>
+						<dt>Total Geral</dt>
+						<dd>{{p.totalVenda | currency}}</dd>
+					</dl>
+					<div class="table-responsive">
+						<table class="table table-condensed">
+							<tr>
+								<th>Vinho</th>
+								<th>Qtde</th>
+								<th>V. Un.</th>
+								<th>Total</th>
+							</tr>
+							<tr ng-repeat="i in p.itens">
+								<td>{{i.vinho.descricao}} - {{i.vinho.tipo.descricao}}</td>
+								<td>{{i.qtde}}</td>
+								<td>{{i.vinho.valor | currency}}</td>
+								<td>{{i.subtotal | currency}}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+			</div>
 		</div>
-		<div uib-accordion-group  ng-repeat="x in pro">
-			<div uib-accordion-heading>
-				<div class="cell"><b>{{x.a}}</b></div>
-				<div class="cell">{{x.b}}</div>
-				<div class="cell"><u>{{x.c}}</u></div>
-				<div class="cell">{{x.d}}</div>
-				<div class="cell">{{x.e}}</div>
-				<div class="cell">{{x.f}}</div>
-			</div>
 
-			<div>
-				Test Data
-			</div>
-
+		<div ng-show="pedidos.length == 0">
+			<h5>Nenhum pedido encontrado.</h5>
 		</div>
 	</div>
-
-
-	<uib-accordion>
-    <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="true">
-      This content is straight in the template.
-    </div>
-    <div uib-accordion-group class="panel-default" heading="{{group.title}}" ng-repeat="group in groups">
-      {{group.content}}
-    </div>
-    <div uib-accordion-group class="panel-default" heading="Dynamic Body Content">
-      <p>The body of the uib-accordion group grows to fit the contents</p>
-      <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
-      <div ng-repeat="item in items">{{item}}</div>
-    </div>
-    
-    <div uib-accordion-group class="panel-danger" heading="Delete account">
-      <p>Please, to delete your account, click the button below</p>
-      <button class="btn btn-danger">Delete</button>
-    </div>
-    <div uib-accordion-group class="panel-default" is-open="status.open">
-      <uib-accordion-heading>
-        I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-      </uib-accordion-heading>
-      This is just some content to illustrate fancy headings.
-    </div>
-  </uib-accordion>
-
-
 </div>
