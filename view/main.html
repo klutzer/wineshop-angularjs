@@ -29,14 +29,27 @@
       <ul class="nav navbar-nav">
         <li>
           <a ui-sref="main.novoPedido" ng-click="navCollapsed = true"
-          ng-class="{'brand-selected-item': isActive('main.novoPedido')}">Novo pedido</a>
+          ng-class="{'brand-selected-item': isActive('main.novoPedido')}">Novo Pedido</a>
         </li>
-        <li uib-dropdown>
+        <li>
+          <a ui-sref="main.pedido" ng-click="navCollapsed = true"
+          ng-class="{'brand-selected-item': isActive('main.pedido')}">Ver Pedidos</a>
+        </li>
+        <li>
+          <a ui-sref="main.cliente" ng-click="navCollapsed = true"
+          ng-class="{'brand-selected-item': isActive('main.cliente')}">Clientes</a>
+        </li>
+        <li>
+          <a ui-sref="main.vinho" ng-click="navCollapsed = true"
+          ng-class="{'brand-selected-item': isActive('main.vinho')}">Vinhos</a>
+        </li>
+
+        <!-- <li uib-dropdown>
           <a href="#" uib-dropdown-toggle>
             Meus dados <span class='caret'></span>
           </a>
           <tree tree='treeMeusDados'></tree>
-        </li>
+        </li> -->
       </ul>
     </div>
     <!-- /.navbar-collapse -->

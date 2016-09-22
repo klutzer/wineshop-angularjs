@@ -20,7 +20,8 @@
 }
 
 .brand-selected-item {
-  color: black!important;
+  color: #189c9c!important;
+  font-weight: bold;
 }
 
 .logo-empresa {
@@ -85,6 +86,12 @@ dd {
   width:25%;
   font-weight: bold;
   color: black;
+}
+
+@media (max-width: 768px) {
+  .cell-header {
+    font-size: 90%;
+  }
 }
 
 .center-block {
