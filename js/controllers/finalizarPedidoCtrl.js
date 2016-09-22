@@ -1,6 +1,7 @@
 /*jslint white:true*/
-/*global angular, bootbox*/
-angular.module("wineshop").controller('finalizarPedidoCtrl', function ($scope, $cookies, $state, KEYS, pedidoService) {
+/*global angular*/
+angular.module("wineshop").controller('finalizarPedidoCtrl', function ($scope, $cookies, $state, 
+    KEYS, pedidoService, ngToast) {
 
     "use strict";
 
@@ -21,7 +22,7 @@ angular.module("wineshop").controller('finalizarPedidoCtrl', function ($scope, $
 
     $scope.concluirPedido = function (pedido) {
         pedidoService.add(pedido).then(function (response) {
-            bootbox.alert("Pedido nº "+response.data.id+" cadastrado!");
+            ngToast.info("Pedido nº "+response.data.id+" cadastrado!");
             $cookies.remove(KEYS.pedidoAtual);
             $state.go("main.novoPedido");
         });

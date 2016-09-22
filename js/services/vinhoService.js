@@ -1,7 +1,15 @@
+/*jslint white:true*/
+/*global angular*/
 angular.module("wineshop").service("vinhoService", function($http, config) {
 
-	this.get = function() {
-		return $http.get(config.baseUrl + "/vinho");
-	};
-	
+    "use strict";
+
+    this.get = function () {
+        return $http.get(config.baseUrl + "/vinho");
+    };
+
+    this.getTipos = function () {
+        return $http.get(config.baseUrl + "/tipo");
+    };
+    
 });

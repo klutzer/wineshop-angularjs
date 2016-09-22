@@ -3,5 +3,39 @@
 		<div class="page-header">
 			<h3>Cadastro de Vinhos</h3>
 		</div>
+		<form name="formCadastro" class="form-group" novalidate>
+			<div class="col-sm-9">
+				<label for="descricao">Descrição</label>
+				<input class="form-control" type="text" name="descricao" ng-model="vinho.descricao"
+				ng-required="true" ng-minlength="5"></input>
+				<span class="help-block" ng-show="formCadastro.descricao.$invalid && formCadastro.descricao.$dirty">
+						Descrição inválida!
+				</span>
+			</div>
+			<div class="col-sm-3">
+				<label for="valor">Valor</label>
+				<input class="form-control" type="text" ng-currency min="0.01" hard-cap="true" 
+				ng-model="vinho.valor" onclick="this.setSelectionRange(0, this.value.length)" name="valor"
+				ng-required="true"></input>
+			</div>
+			<div class="col-sm-9">
+				<label for="tipo">Tipo</label>
+				<select class="form-control" name="tipo" ng-model="vinho.tipo" ng-required="true"
+				ng-options="tipo.descricao for tipo in tipos">
+					<option value="">Selecione um tipo...</option>
+				</select>
+			</div>
+			<div class="col-sm-3">
+				<label for="peso">Peso (kg)</label>
+				<input type="number" step="0.100" class="form-control" name="peso" ng-model="vinho.peso"
+				min="0.001" ng-required="true"></input>
+			</div>
+			<div class="col-sm-12">
+				<button ng-disabled="formCadastro.$invalid" class="btn btn-primary">Gravar</button>
+				<button ng-click="toast1()" class="btn btn-primary">Testa toast 1</button>
+				<button ng-click="toast2()" class="btn btn-primary">Testa toast 2</button>
+				<button ng-click="toast3()" class="btn btn-primary">Testa toast 3</button>
+			</div>
+		</form>
 	</div>
 </div>

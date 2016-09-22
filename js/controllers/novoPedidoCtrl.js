@@ -1,7 +1,7 @@
 /*jslint white:true*/
-/*global angular, bootbox*/
+/*global angular*/
 angular.module("wineshop").controller("novoPedidoCtrl", function (
-	$scope, $state, $cookies, KEYS, vinhoService, clienteService) {
+	$scope, $state, $cookies, KEYS, vinhoService, clienteService, ngToast) {
 	
 	"use strict";
 	
@@ -42,7 +42,7 @@ angular.module("wineshop").controller("novoPedidoCtrl", function (
 	
 	$scope.adicionarItem = function (item) {
 		if (verificaDuplicado(item)) {
-			bootbox.alert("Este vinho já está inserido em seu pedido!");
+			ngToast.warning("Este vinho já está inserido em seu pedido!");
 			return;
 		}
 		$scope.pedido.itens.push(item);
