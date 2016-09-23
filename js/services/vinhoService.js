@@ -8,8 +8,12 @@ angular.module("wineshop").service("vinhoService", function($http, config) {
         return $http.get(config.baseUrl + "/vinho");
     };
 
-    this.save = function () {
-    	return $http.put(config.baseUrl + "/vinho");
+    this.save = function (vinho) {
+    	return $http.put(config.baseUrl + "/vinho", vinho);
+    };
+
+    this.remove = function (vinho) {
+        return $http.delete(config.baseUrl + "/vinho/" + vinho.id);
     };
 
     this.getTipos = function () {

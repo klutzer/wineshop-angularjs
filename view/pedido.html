@@ -17,11 +17,11 @@
 			</div>
 			<div uib-accordion-group  ng-repeat="p in pedidos" is-open="status.open" panel-default>
 				<div uib-accordion-heading>
-					<div class="cell">{{p.dataHora | date:'dd/MM/yyyy HH:mm'}}</div>
-					<div class="cell">{{p.cliente.nome}}</div>
-					<div class="cell">{{p.valorItens | currency}}</div>
-					<div class="cell">{{p.totalFrete | currency}}</div>
-					<div class="cell">{{p.totalVenda | currency}}</div>
+					<div class="cell">{{::p.dataHora | date:'dd/MM/yyyy HH:mm'}}</div>
+					<div class="cell">{{::p.cliente.nome}}</div>
+					<div class="cell">{{::p.valorItens | currency}}</div>
+					<div class="cell">{{::p.totalFrete | currency}}</div>
+					<div class="cell">{{::p.totalVenda | currency}}</div>
 				</div>
 
 				<div>
@@ -51,11 +51,11 @@
 								<th>Total</th>
 							</tr>
 							<tr ng-repeat="i in p.itens">
-								<td>{{i.vinho.descricao}}</td>
-								<td>{{i.qtde}}</td>
-								<td>{{i.vinho.peso * i.qtde | number:3}}kg</td>
-								<td>{{i.vinho.valor | currency}}</td>
-								<td>{{i.subtotal | currency}}</td>
+								<td>{{::i.vinho.descricao}}</td>
+								<td>{{::i.qtde}}</td>
+								<td>{{::i.vinho.peso * i.qtde | number:3}}kg</td>
+								<td>{{::i.vinho.valor | currency}}</td>
+								<td>{{::i.subtotal | currency}}</td>
 							</tr>
 						</table>
 					</div>

@@ -32,11 +32,18 @@ angular.module("wineshop").controller("clienteCtrl", function ($scope, clienteSe
         clienteService.remove(cliente).then(function (response) {
             ngToast.info(response.data.msg);
             $scope.reset();
+        }, function (response) {
+            if (response.data.msg) {
+                ngToast.warning(response.data.msg);
+            }else {
+                ngToast.danger(response.statusText);
+            }
         });
     };
     
     $scope.editar = function (cliente) {
-        $scope.cliente = angular.copy(cliente);
+        $scope.cliente = cliente;
+        //$scope.cliente = angular.copy(cliente);
     };
     
     carregarClientes();
