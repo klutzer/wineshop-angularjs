@@ -1,71 +1,73 @@
 <div class="container">
-	<div class="col-lg-8 col-lg-offset-2">
-		<div class="page-header">
-			<h3>Meus Pedidos</h3>
-		</div>
-		<div uib-accordion ng-show="pedidos.length > 0">
-			<div uib-accordion-group is-disabled="true" class="panel-default">
-				<div uib-accordion-heading>
-					<div uib-accordion-toggle>
-						<div class="cell-header">Data</div>
-						<div class="cell-header">Cliente</div>
-						<div class="cell-header">Valor</div>
-						<div class="cell-header">Frete</div>
-						<div class="cell-header">Total</div>
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2">
+			<div class="page-header">
+				<h3>Meus Pedidos</h3>
+			</div>
+			<div uib-accordion ng-show="pedidos.length > 0">
+				<div uib-accordion-group is-disabled="true" class="panel-default">
+					<div uib-accordion-heading>
+						<div uib-accordion-toggle>
+							<div class="cell-header">Data</div>
+							<div class="cell-header">Cliente</div>
+							<div class="cell-header">Valor</div>
+							<div class="cell-header">Frete</div>
+							<div class="cell-header">Total</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div uib-accordion-group  ng-repeat="p in pedidos" is-open="status.open" panel-default>
-				<div uib-accordion-heading>
-					<div class="cell">{{::p.dataHora | date:'dd/MM/yyyy HH:mm'}}</div>
-					<div class="cell">{{::p.cliente.nome}}</div>
-					<div class="cell">{{::p.valorItens | currency}}</div>
-					<div class="cell">{{::p.totalFrete | currency}}</div>
-					<div class="cell">{{::p.totalVenda | currency}}</div>
-				</div>
-
-				<div>
-					<dl class="dl-horizontal">
-						<dt>Cliente</dt>
-						<dd>{{p.cliente.nome}}</dd>
-						<dt>Itens</dt>
-						<dd>{{p.itens.length}}</dd>
-						<dt>Distância</dt>
-						<dd>{{p.distancia}} km</dd>
-						<dt>Total dos Itens</dt>
-						<dd>{{p.valorItens | currency}}</dd>
-						<dt>Peso Total</dt>
-						<dd>{{p.pesoTotal | number:3}}kg</dd>
-						<dt>Frete</dt>
-						<dd>{{p.totalFrete | currency}}</dd>
-						<dt>Total Geral</dt>
-						<dd>{{p.totalVenda | currency}}</dd>
-					</dl>
-					<div class="table-responsive">
-						<table class="table table-condensed">
-							<tr>
-								<th>Vinho</th>
-								<th>Qtde</th>
-								<th>Peso</th>
-								<th>V. Un.</th>
-								<th>Total</th>
-							</tr>
-							<tr ng-repeat="i in p.itens">
-								<td>{{::i.vinho.descricao}}</td>
-								<td>{{::i.qtde}}</td>
-								<td>{{::i.vinho.peso * i.qtde | number:3}}kg</td>
-								<td>{{::i.vinho.valor | currency}}</td>
-								<td>{{::i.subtotal | currency}}</td>
-							</tr>
-						</table>
+				<div uib-accordion-group  ng-repeat="p in pedidos" is-open="status.open" panel-default>
+					<div uib-accordion-heading>
+						<div class="cell">{{::p.dataHora | date:'dd/MM/yyyy HH:mm'}}</div>
+						<div class="cell">{{::p.cliente.nome}}</div>
+						<div class="cell">{{::p.valorItens | currency}}</div>
+						<div class="cell">{{::p.totalFrete | currency}}</div>
+						<div class="cell">{{::p.totalVenda | currency}}</div>
 					</div>
+
+					<div>
+						<dl class="dl-horizontal">
+							<dt>Cliente</dt>
+							<dd>{{p.cliente.nome}}</dd>
+							<dt>Itens</dt>
+							<dd>{{p.itens.length}}</dd>
+							<dt>Distância</dt>
+							<dd>{{p.distancia}} km</dd>
+							<dt>Total dos Itens</dt>
+							<dd>{{p.valorItens | currency}}</dd>
+							<dt>Peso Total</dt>
+							<dd>{{p.pesoTotal | number:3}}kg</dd>
+							<dt>Frete</dt>
+							<dd>{{p.totalFrete | currency}}</dd>
+							<dt>Total Geral</dt>
+							<dd>{{p.totalVenda | currency}}</dd>
+						</dl>
+						<div class="table-responsive">
+							<table class="table table-condensed">
+								<tr>
+									<th>Vinho</th>
+									<th>Qtde</th>
+									<th>Peso</th>
+									<th>V. Un.</th>
+									<th>Total</th>
+								</tr>
+								<tr ng-repeat="i in p.itens">
+									<td>{{::i.vinho.descricao}}</td>
+									<td>{{::i.qtde}}</td>
+									<td>{{::i.vinho.peso * i.qtde | number:3}}kg</td>
+									<td>{{::i.vinho.valor | currency}}</td>
+									<td>{{::i.subtotal | currency}}</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+
 				</div>
-
 			</div>
-		</div>
 
-		<div ng-show="pedidos.length == 0">
-			<h5>Nenhum pedido encontrado.</h5>
+			<div ng-show="pedidos.length == 0">
+				<h5>Nenhum pedido encontrado.</h5>
+			</div>
 		</div>
 	</div>
 </div>

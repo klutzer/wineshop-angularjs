@@ -1,66 +1,75 @@
 <div class="container">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="page-header">
-            <h3>Novo Pedido</h3>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="page-header">
+                <h3>Novo Pedido</h3>
+            </div>
+            <form name="formCadastro" class="form-group">
+                <div class="row">
+                    <div class="col-md-9">
+                        <label for="vinho">Selecione um Vinho</label>
+                        <select class="form-control" ng-model="item.vinho" name="vinho" ng-options="vinho.descricao + ' (' + (vinho.valor | currency) + ')' group by vinho.tipo.descricao for vinho in vinhos" ng-required="true">
+                            <option value="">Selecione um vinho</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="qtde">Quantidade</label>
+                        <input type="number" min="1" class="form-control" ng-model="item.qtde" name="qtde" required>
+                        </input>
+                        <span class="help-block" ng-show="formCadastro.qtde.$invalid">
+                            Quantidade inválida!
+                        </span>
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <button class="btn btn-primary" ng-click="adicionarItem(item)" ng-disabled="formCadastro.$invalid">Adicionar</button>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-md-12" ng-show="pedido.itens.length > 0">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Vinho</th>
+                                <th>Qtde</th>
+                                <th>V. Un.</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                            <tr ng-repeat="i in pedido.itens">
+                                <td>{{::i.vinho.descricao}} - {{::i.vinho.tipo.descricao}}</td>
+                                <td>{{::i.qtde}}</td>
+                                <td>{{::i.vinho.valor | currency}}</td>
+                                <td>{{::i.vinho.valor * i.qtde | currency}}</td>
+                                <td><a href="" ng-click="removerItem($index)" class="glyphicon glyphicon-remove" style="color: red" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <form name="formPedido" novalidate>
+                <div class="row">
+                    <div class="col-md-9">
+                        <label for="cliente">Cliente</label>
+                        <select class="form-control" ng-model="pedido.cliente" name="cliente"
+                            ng-options="cliente.nome for cliente in clientes" ng-required="true">
+                            <option value="">Selecione um cliente</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="distancia">Distância (km)</label>
+                        <input type="number" min="1" ng-required="true" ng-model="pedido.distancia"
+                               class="form-control"></input>
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btn btn-danger" ng-click="limparPedido()">LimparPedido</button>
+                        <button class="btn btn-primary" ng-click="finalizar(pedido)"
+                                ng-disabled="formPedido.$invalid || pedido.itens.length < 1">Finalizar Pedido
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <form name="formCadastro" class="form-group">
-            <div class="col-sm-9">
-                <label for="vinho">Selecione um Vinho</label>
-                <select class="form-control" ng-model="item.vinho" name="vinho" ng-options="vinho.descricao + ' (' + (vinho.valor | currency) + ')' group by vinho.tipo.descricao for vinho in vinhos" ng-required="true">
-                    <option value="">Selecione um vinho</option>
-                </select>
-            </div>
-            <div class="col-sm-3">
-                <label for="qtde">Quantidade</label>
-                <input type="number" min="1" class="form-control" ng-model="item.qtde" name="qtde" required>
-                </input>
-                <span class="help-block" ng-show="formCadastro.qtde.$invalid">
-                    Quantidade inválida!
-                </span>
-            </div>
-            <div class="col-sm-12">
-                <button class="btn btn-primary" ng-click="adicionarItem(item)" ng-disabled="formCadastro.$invalid">Adicionar</button>
-            </div>
-        </form>
-        <div class="col-sm-12" ng-show="pedido.itens.length > 0">
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <tr>
-                        <th>Vinho</th>
-                        <th>Qtde</th>
-                        <th>V. Un.</th>
-                        <th>Total</th>
-                        <th></th>
-                    </tr>
-                    <tr ng-repeat="i in pedido.itens">
-                        <td>{{::i.vinho.descricao}} - {{::i.vinho.tipo.descricao}}</td>
-                        <td>{{::i.qtde}}</td>
-                        <td>{{::i.vinho.valor | currency}}</td>
-                        <td>{{::i.vinho.valor * i.qtde | currency}}</td>
-                        <td><a href="" ng-click="removerItem($index)" class="glyphicon glyphicon-remove" style="color: red" /></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <hr>
-        <form name="formPedido" novalidate>
-            <div class="col-sm-9">
-                <label for="cliente">Cliente</label>
-                <select class="form-control" ng-model="pedido.cliente" name="cliente"
-                    ng-options="cliente.nome for cliente in clientes" ng-required="true">
-                    <option value="">Selecione um cliente</option>
-                </select>
-            </div>
-            <div class="col-sm-3">
-                <label for="distancia">Distância (km)</label>
-                <input type="number" min="1" ng-required="true" ng-model="pedido.distancia"
-                       class="form-control"></input>
-            </div>
-            <div class="col-sm-12">
-                <button class="btn btn-danger" ng-click="limparPedido()">LimparPedido</button>
-                <button class="btn btn-primary" ng-click="finalizar(pedido)"
-                        ng-disabled="formPedido.$invalid || pedido.itens.length < 1">Finalizar Pedido</button>
-            </div>
-        </form>
     </div>
 </div>
