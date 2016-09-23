@@ -33,10 +33,10 @@
                         <th></th>
                     </tr>
                     <tr ng-repeat="i in pedido.itens">
-                        <td>{{i.vinho.descricao}} - {{i.vinho.tipo.descricao}}</td>
-                        <td>{{i.qtde}}</td>
-                        <td>{{i.vinho.valor | currency}}</td>
-                        <td>{{i.vinho.valor * i.qtde | currency}}</td>
+                        <td>{{::i.vinho.descricao}} - {{::i.vinho.tipo.descricao}}</td>
+                        <td>{{::i.qtde}}</td>
+                        <td>{{::i.vinho.valor | currency}}</td>
+                        <td>{{::i.vinho.valor * i.qtde | currency}}</td>
                         <td><a href="" ng-click="removerItem($index)" class="glyphicon glyphicon-remove" style="color: red" /></td>
                     </tr>
                 </table>

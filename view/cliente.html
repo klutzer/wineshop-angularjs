@@ -15,7 +15,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-sm-12">
 					<button class="btn btn-default" ng-click="reset()">Novo</button>
 					<button class="btn btn-primary" ng-disabled="formCadastro.$invalid" 
 					ng-click="salvarCliente(cliente)">Salvar</button>
@@ -32,8 +32,8 @@
 						<th>Nome</th>
 					</tr>
 					<tr ng-repeat="cliente in clientes">
-						<td>{{cliente.id}}</td>
-						<td><a href="" ng-click="editar(cliente)">{{cliente.nome}}</a></td>
+						<td>{{::cliente.id}}</td>
+						<td><a href="" ng-click="editar(cliente)">{{::cliente.nome}}</a></td>
 					</tr>
 				</table>
 			</div>

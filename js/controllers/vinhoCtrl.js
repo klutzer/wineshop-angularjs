@@ -13,5 +13,20 @@ angular.module("wineshop").controller("vinhoCtrl", function ($scope, ngToast, vi
     	});
     };
 
+    var carregarVinhos = function () {
+        vinhoService.get().then(function (response) {
+            $scope.vinhos = response.data;
+        }, function (response) {
+            console.log("Erro: "+response.statusText);
+        });
+    };
+
+    $scope.reset = function () {
+        delete $scope.vinho;
+        $scope.formCadastro.$setPristine();
+        document.getElementById('descricao').focus();
+        carregarVinhos();
+    };
+
     carregaTipos();
 });
