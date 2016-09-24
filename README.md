@@ -20,6 +20,9 @@ python -m SimpleHTTPServer 3000
 ```
 A porta em ambos os casos foi definida como a 3000, porém qualquer outra porta pode ser utilizada. É importante apenas atentar para o detalhe de que o back-end por padrão cria um servidor Jetty na porta 8080, então desconsidere-a para o front-end.
 
+### Live Demo
+Também é possível acessar a aplicação direto da web, pelo link <http://cloud.2me.net.br/wineshop/site>.
+
 ## Login na aplicação
 - **Usuário:** test@test.com
 - **Senha:** 123
