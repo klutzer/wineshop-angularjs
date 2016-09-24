@@ -1,4 +1,6 @@
-angular.module("wineshop").service("pedidoService", function($http, config) {
+/*jslint white:true*/
+/*global angular*/
+angular.module("wineshop").service("pedidoService", function ($http, config) {
 
     "use strict";
 
@@ -8,6 +10,10 @@ angular.module("wineshop").service("pedidoService", function($http, config) {
 
     this.add = function (pedido) {
         return $http.post(config.baseUrl + "/venda", pedido);
+    };
+
+    this.remove = function (pedido) {
+        return $http.delete(config.baseUrl + "/venda/" + pedido.id);
     };
 
     this.list = function () {

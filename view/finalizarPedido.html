@@ -19,7 +19,8 @@
 			<dt class="strong-dd">Total Geral</dt>
 			<dd class="strong-dd">{{pedido.totalVenda | currency}}</dd>
 			<button class="btn btn-default" ui-sref="main.novoPedido">Voltar ao Pedido</button>
-			<button class="btn btn-primary" ng-click="concluirPedido(pedido)">Concluir Pedido</button>
+			<button class="btn btn-primary" ng-click="concluirPedido(pedido)"
+				ng-disabled="concluirDisabled">Concluir Pedido</button>
 		</dl>
 	</div>
 </div>

@@ -21,10 +21,13 @@ angular.module("wineshop").controller('finalizarPedidoCtrl', function ($scope, $
     verificaPedidoAtual();
 
     $scope.concluirPedido = function (pedido) {
+        $scope.concluirDisabled = true;
         pedidoService.add(pedido).then(function (response) {
             ngToast.info("Pedido nº "+response.data.id+" cadastrado!");
             $cookies.remove(KEYS.pedidoAtual);
             $state.go("main.novoPedido");
+        }).finally(function () {
+            $scope.concluirDisabled = false;
         });
     };
 
