@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-md-9">
                         <label for="vinho">Selecione um Vinho</label>
-                        <select class="form-control" ng-model="item.vinho" name="vinho" ng-options="vinho.descricao + ' (' + (vinho.valor | currency) + ')' group by vinho.tipo.descricao for vinho in vinhos" ng-required="true">
+                        <select class="form-control" ng-model="item.vinho" name="vinho" ng-options="vinho.descricao + ' (' + (vinho.valor | currency) + ')' group by vinho.tipo.descricao for vinho in vinhos track by vinho.id" ng-required="true">
                             <option value="">Selecione um vinho</option>
                         </select>
                     </div>
