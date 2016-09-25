@@ -20,6 +20,18 @@ python -m SimpleHTTPServer 3000
 ```
 A porta em ambos os casos foi definida como a 3000, porém qualquer outra porta pode ser utilizada. É importante apenas atentar para o detalhe de que o back-end por padrão cria um servidor Jetty na porta 8080, então desconsidere-a para o front-end.
 
+### Build de produção
+Em ambos os casos acima foi utilizado o próprio diretório do projeto para deploy. Quando colocamos um sistema em produção, é comum realizarmos operações em cima dos scripts e bibliotecas utilizadas, a fim de minimizar, obfuscar ou agrupar arquivos, por exemplo. Para isso foi utilizado o [gulp](http://gulpjs.com), que automatiza o build da aplicação.
+
+Para gerar o build de produção, na raiz do projeto execute:
+```shell
+npm install
+gulp --backEndHost localhost:8080
+```
+Após isso, será gerado o diretório `/dist`, com a url do back-end configurada para acesso em `http://localhost:8080/wineshop/api`. No caso deste host (localhost:8080), não é necessário passar o parâmetro `backEndHost`, pois ele já é o default.
+
+As duas opções de deploy mostradas acima também podem ser feitas a partir do diretório `dist`.
+
 ### Live Demo
 Também é possível acessar a aplicação direto da web, pelo link <http://cloud.2me.net.br/wineshop/site>.
 

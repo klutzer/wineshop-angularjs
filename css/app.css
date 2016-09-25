@@ -16,7 +16,7 @@ body {
 }
 
 .brand-logo {
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 .ng-map {
@@ -24,13 +24,12 @@ body {
 }
 
 .brand-selected-item {
-  color: #707070!important;
+  color: #F8F5F0!important;
   font-weight: bold;
 }
 
-.logo-empresa {
-  width: 100px;
-  height: auto;
+.img-responsive {
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
@@ -76,12 +75,12 @@ dd {
 .cell{
   display: table-cell; 
   width:26%;
-  font-size: 85%;
+  color: #3E3F3A
 }
 
 @media (max-width: 768px) {
   .cell {
-    font-size: 70%;
+    font-size: 90%;
   }
 }
 
@@ -89,6 +88,7 @@ dd {
   display: table-cell; 
   width:25%;
   font-weight: bold;
+  font-size: 110%;
   color: black;
 }
 

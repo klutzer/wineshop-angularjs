@@ -13,3 +13,7 @@
 
 # KDE Environment
 .directory
+
+# Dev dependencies
+node_modules/
+dist/

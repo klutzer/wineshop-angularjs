@@ -63,10 +63,10 @@
                                class="form-control"></input>
                     </div>
                     <div class="col-md-12">
-                        <button class="btn btn-danger" ng-click="limparPedido()">LimparPedido</button>
                         <button class="btn btn-primary" ng-click="finalizar(pedido)"
                                 ng-disabled="formPedido.$invalid || pedido.itens.length < 1">Finalizar Pedido
                         </button>
+                        <button class="btn btn-danger" ng-click="limparPedido()">Limpar Pedido</button>
                     </div>
                 </div>
             </form>
