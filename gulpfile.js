@@ -62,7 +62,10 @@ gulp.task('htmlmin', function () {
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('dist/'));
 
-    return merge(view, index);
+    var configXml = gulp.src('config.xml')
+    .pipe(gulp.dest('dist/'));
+
+    return merge(view, index, configXml);
 });
 
 gulp.task('cssmin', function () {
