@@ -6,7 +6,7 @@
 			</div>
 			<form name="formCadastro" class="form-group" novalidate>
 				<div class="row" ng-class="{'has-error': formCadastro.nome.$invalid && formCadastro.nome.$dirty}">
-					<div class="col-md-6 col-md-offset-3">
+					<div class="col-md-8">
 						<label for="nome">Nome</label>
 						<input class="form-control" type="text" ng-required="true" ng-minlength="3"
 						ng-model="cliente.nome" name="nome" id="nome"></input>
@@ -16,7 +16,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-12">
+					<div class="col-md-12">
 						<button class="btn btn-primary" ng-disabled="formCadastro.$invalid" 
 						ng-click="salvarCliente(cliente)">Salvar</button>
 						<button class="btn btn-default" ng-click="reset()">Novo</button>
@@ -26,7 +26,7 @@
 				</div>
 			</form>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
+				<div class="col-md-12">
 					<table class="table table-striped" ng-show="clientes.length > 0">
 						<tr>
 							<th>Código</th>
