@@ -1,6 +1,6 @@
 /*jslint white:true*/
 /*global angular*/
-angular.module("wineshop").controller("vinhoCtrl", function ($scope, ngToast, vinhoService) {
+angular.module("wineshop").controller("vinhoCtrl", function ($scope, ngToast, vinhoService, $document) {
 
     "use strict";
 
@@ -45,6 +45,7 @@ angular.module("wineshop").controller("vinhoCtrl", function ($scope, ngToast, vi
     	}, function (response) {
     		if (response.data.msg) {
     			ngToast.warning(response.data.msg);
+                console.log(response.data.msgDetail);
     		}else {
     			ngToast.danger(response.statusText);
     		}
@@ -53,6 +54,7 @@ angular.module("wineshop").controller("vinhoCtrl", function ($scope, ngToast, vi
 
     $scope.editar = function (vinho) {
         $scope.vinho = vinho;
+        $document.scrollTopAnimated(0);
         //$scope.vinho = angular.copy(vinho);
     };
 });

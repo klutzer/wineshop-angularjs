@@ -42,7 +42,8 @@ gulp.task('uglify', function () {
         'lib/ng-currency/dist/ng-currency.js',
         'lib/angular-animate/angular-animate.min.js',
         'lib/angular-sanitize/angular-sanitize.min.js',
-        'lib/ngToast/dist/ngToast.min.js']).pipe(concat('dependencies.min.js')),
+        'lib/ngToast/dist/ngToast.min.js',
+        'lib/angular-scroll/angular-scroll.min.js']).pipe(concat('dependencies.min.js')),
         es.merge([
             gulp.src('js/app.js').pipe(replace('localhost:8080', backEndHost)),
             gulp.src(['js/**/*.js', '!js/app.js'])

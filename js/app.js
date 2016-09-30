@@ -1,7 +1,7 @@
 /*jslint white:true*/
 /*global angular, window*/
 angular.module("wineshop", ["ng-currency", "ui.bootstrap", "ui.router", "ui.navbar", "ngCookies", 
-    "ngToast", "ngAnimate", "ngSanitize"]);
+    "ngToast", "ngAnimate", "ngSanitize", "duScroll"]);
 
 angular.module("wineshop")
 .constant("KEYS", {

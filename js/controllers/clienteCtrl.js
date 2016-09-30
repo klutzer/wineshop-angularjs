@@ -1,6 +1,6 @@
 /*jslint white:true*/
 /*global angular*/
-angular.module("wineshop").controller("clienteCtrl", function ($scope, clienteService, ngToast) {
+angular.module("wineshop").controller("clienteCtrl", function ($scope, clienteService, ngToast, $document) {
 
     "use strict";
 
@@ -35,6 +35,7 @@ angular.module("wineshop").controller("clienteCtrl", function ($scope, clienteSe
         }, function (response) {
             if (response.data.msg) {
                 ngToast.warning(response.data.msg);
+                console.log(response.data.msgDetail);
             }else {
                 ngToast.danger(response.statusText);
             }
@@ -43,6 +44,7 @@ angular.module("wineshop").controller("clienteCtrl", function ($scope, clienteSe
     
     $scope.editar = function (cliente) {
         $scope.cliente = cliente;
+        $document.scrollTopAnimated(0);
         //$scope.cliente = angular.copy(cliente);
     };
     

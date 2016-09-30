@@ -19,6 +19,7 @@ angular.module("wineshop").controller("pedidoCtrl", function ($scope, ngToast, p
     	}, function (response) {
             if (response.data && response.data.msg) {
                 ngToast.warning(response.data.msg);
+                console.log(response.data.msgDetail);
             } else {
                 ngToast.danger(response.statusText);
             }
