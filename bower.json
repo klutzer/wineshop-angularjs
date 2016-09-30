@@ -27,7 +27,8 @@
     "angular-sanitize": "1.5.8",
     "angular-animate": "1.5.8",
     "ngToast": "ngtoast#2.0.0",
-    "angular-scroll": "^1.0.0"
+    "angular-scroll": "^1.0.0",
+    "angular-confirm-modal": "^1.2.6"
   },
   "devDependencies": {}
 }

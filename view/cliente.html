@@ -21,7 +21,8 @@
 						ng-click="salvarCliente(cliente)">Salvar</button>
 						<button class="btn btn-default" ng-click="reset()">Novo</button>
 						<button class="btn btn-danger" ng-disabled="!cliente.id" 
-						ng-click="removerCliente(cliente)">Excluir</button>
+						ng-click="removerCliente(cliente)" confirm="Deseja excluir o(a) cliente '{{cliente.nome}}'?"
+						confirm-settings="{size: 'sm'}">Excluir</button>
 					</div>
 				</div>
 			</form>

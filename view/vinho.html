@@ -41,7 +41,8 @@
 							ng-click="salvarVinho(vinho)">Salvar</button>
 						<button class="btn btn-default" ng-click="reset()">Novo</button>
 						<button class="btn btn-danger" ng-disabled="!vinho.id" 
-							ng-click="removerVinho(vinho)">Excluir</button>
+							ng-click="removerVinho(vinho)" confirm="Deseja excluir o vinho '{{vinho.descricao}}'?"
+						confirm-settings="{size: 'sm'}">Excluir</button>
 					</div>
 				</div>
 			</form>

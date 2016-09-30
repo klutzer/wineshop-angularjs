@@ -61,7 +61,9 @@
 							</table>
 						</div>
 						<div>
-							<button class="btn btn-danger" ng-click="removerPedido(p)">Remover Pedido</button>
+							<button class="btn btn-danger" ng-click="removerPedido(p)" 
+							confirm="Deseja excluir este pedido?" 
+							confirm-settings="{size: 'sm'}">Remover Pedido</button>
 						</div>
 					</div>
 

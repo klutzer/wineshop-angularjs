@@ -11,8 +11,8 @@ body {
 }
 
 .btn {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
 }
 
 .brand-logo {

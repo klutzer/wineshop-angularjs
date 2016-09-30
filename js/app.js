@@ -1,7 +1,7 @@
 /*jslint white:true*/
 /*global angular, window*/
 angular.module("wineshop", ["ng-currency", "ui.bootstrap", "ui.router", "ui.navbar", "ngCookies", 
-    "ngToast", "ngAnimate", "ngSanitize", "duScroll"]);
+    "ngToast", "ngAnimate", "ngSanitize", "duScroll", "angular-confirm"]);
 
 angular.module("wineshop")
 .constant("KEYS", {
@@ -34,4 +34,9 @@ angular.module("wineshop")
       }
     }
   });
+})
+.run(function($confirmModalDefaults) {
+  $confirmModalDefaults.defaultLabels.title = 'Confirmar';
+  $confirmModalDefaults.defaultLabels.ok = 'Sim';
+  $confirmModalDefaults.defaultLabels.cancel = 'Não';
 });
